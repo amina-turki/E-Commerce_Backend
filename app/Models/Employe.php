@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employe extends Model
 {
+    public $table = "employes";
     use HasFactory;
+
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nom', 'prenom','age','tel','mail','adresse','cin','etet'
+    ];
 }
