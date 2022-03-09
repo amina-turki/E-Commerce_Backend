@@ -8,7 +8,7 @@ use App\Http\Resources\RessourceClient as ResourcesClient;
 class ClientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. comment
      *
      * @return \Illuminate\Http\Response
      */
