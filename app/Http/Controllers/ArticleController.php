@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-
+use DB;
 class ArticleController extends Controller
 {
     /**
@@ -26,12 +26,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        if (article::create($request->all())) {
+     /*   if (article::create($request->all())) {
             return response()->json([
                 'success' => 'Actualité créée avec succès'
             ], 200);
         }
+*/
 
+        $client = new article([
+            'nom' => $request->input('nom'),
+            'prix' => $request->input('prix'),
+            'etat' => 'E'
+        ]);
+        $client->save();
+        return response()->json('Client créé !');
       
     }
 
@@ -42,12 +50,20 @@ class ArticleController extends Controller
         $client = new article([
             'nom' => $request->input('nom'),
             'prix' => $request->input('prix'),
-            'etat' => $request->input('etat'), 
+            'etat' => 'E'
         ]);
         $client->save();
         return response()->json('Client créé !');
     }
 
+
+    
+    public function recherche ($nom) {
+       return $clients  =  DB::table('articles')
+                      ->where('nom' , 'LIKE' , '%'.$nom.'%' )
+                      ->get();
+                      
+    }
 
     /**
      * Display the specified resource.
@@ -87,4 +103,7 @@ class ArticleController extends Controller
         $Art->delete();
         return response()->json('Article supprimé !');
     }
+
+    
+  
 }
