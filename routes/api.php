@@ -7,6 +7,7 @@ use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Middleware;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -57,8 +58,13 @@ Route::middleware('api')->group(function () {
 
 
 Route::middleware('api')->group(function () {
-    Route::resource('articles', ArticleController::class);
+    Route::resource('articles', ArticleController::class)->middleware('CORS');
     //// url:http://localhost:8080/Ecommerce/public/api/articles/
     Route::post('/Creerarticle', [ArticleController::class, 'storeByAtt']); // url:http://localhost:8080/Ecommerce/public/api/Creerarticle
 
+});
+Route::get('/users/get-data','UserController@getData')->middleware('Cors');
+
+Route::get('/', function () {
+    return 'jjjjj';
 });
