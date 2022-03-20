@@ -34,6 +34,19 @@ class CategorieController extends Controller
         }
     }
 
+
+    public function storeByAtt(Request $request,$id)
+    {
+        $categorie = new categorie([
+            'nom' => $request->input('nom'),
+            'description' => $request->input('description'),
+            'articleCat_id' => $id
+        ]);
+        $categorie->save();
+        return response()->json('categorie créé !');
+    }
+
+
     /**
      * Display the specified resource.
      *

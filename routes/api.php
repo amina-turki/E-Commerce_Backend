@@ -53,7 +53,11 @@ Route::middleware('api')->group(function () {
 
 Route::middleware('api')->group(function () {
     Route::resource('categories', CategorieController::class);
-    //// url:http://localhost:81//BackendEcommerce/E-Commerce_Backend/public/api/categories/
+    //// url:http://localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/categories/
+
+    Route::post('/Creercategories/{id}', [CategorieController::class, 'storeByAtt']); 
+    // url:http:/localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/Creercategories
+
 });
 
 
