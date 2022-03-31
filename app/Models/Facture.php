@@ -16,7 +16,7 @@ class Facture extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'tva','taxe','nom_societe','adresse','quantite','articleFac_id '
+        'code', 'tva','nom_societe','adresse','quantite','articleFac_id '
     ];
     public function articles(){
         return $this->belongsTo(Article::class);

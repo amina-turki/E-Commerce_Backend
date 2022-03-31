@@ -15,12 +15,11 @@ class CreateFacturesTable extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
-            $table->float('code');
+            $table->integer('code');
             $table->float('tva');
-            $table->float('taxe');
             $table->string('nom_societe');
             $table->string('adresse');
-            $table->float('quantite');
+            $table->integer('quantite');
             $table->foreignId('articleFac_id')->constrained('articles')->onDelete('cascade');
 
             $table->timestamps();
