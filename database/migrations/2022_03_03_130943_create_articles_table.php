@@ -16,7 +16,8 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->float('prix');
+            $table->float('prixA');
+            $table->float('prixV');
             $table->string('etat');
             $table->timestamps();
         });

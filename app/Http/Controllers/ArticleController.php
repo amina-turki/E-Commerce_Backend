@@ -35,7 +35,8 @@ class ArticleController extends Controller
 
         $client = new article([
             'nom' => $request->input('nom'),
-            'prix' => $request->input('prix'),
+            'prixA' => $request->input('prixA'),
+            'prixV' => $request->input('prixV'),
             'etat' => 'E'
         ]);
         $client->save();
@@ -49,7 +50,8 @@ class ArticleController extends Controller
     {
         $client = new article([
             'nom' => $request->input('nom'),
-            'prix' => $request->input('prix'),
+            'prixA' => $request->input('prixA'),
+            'prixV' => $request->input('prixV'),
             'etat' => 'E'
         ]);
         $client->save();
