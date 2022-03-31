@@ -73,7 +73,7 @@ class ArticleController extends Controller
      */
     public function show( $article)
     {
-         $Art = Article::find($article);
+        $Art = Article::find($article);
         return response()->json($Art);
     }
 
@@ -105,5 +105,6 @@ class ArticleController extends Controller
     }
 
     
+
   
 }
