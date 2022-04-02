@@ -34,9 +34,10 @@ class ArticleController extends Controller
 */
 
         $client = new article([
+            'referance' =>$request->input('referance'),
             'nom' => $request->input('nom'),
             'prixA' => $request->input('prixA'),
-            'prixV' => $request->input('prixV'),
+            'prixV' => 500,
             'etat' => 'E'
         ]);
         $client->save();
@@ -49,6 +50,7 @@ class ArticleController extends Controller
     public function storeByAtt(Request $request)
     {
         $client = new article([
+            'referance' =>$request->input('referance'),
             'nom' => $request->input('nom'),
             'prixA' => $request->input('prixA'),
             'prixV' => $request->input('prixV'),

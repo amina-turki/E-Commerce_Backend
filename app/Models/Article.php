@@ -16,7 +16,7 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'nom', 'etat','prixA','prixV'
+        'referance','nom', 'etat','prixA','prixV'
     ];
     public function Factures()
     {

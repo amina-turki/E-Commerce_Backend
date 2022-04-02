@@ -15,6 +15,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->integer('referance');
             $table->string('nom');
             $table->float('prixA');
             $table->float('prixV');
