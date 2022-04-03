@@ -46,6 +46,15 @@ class ArticleController extends Controller
     }
 
 
+    function getArticleCatUnProd(Request $request,$id){
+        $record = DB::select("select c.nom as type , c.description, c.id from categories c, articles a where  a.id=c.articleCat_id and c.articleCat_id=? ",[$id]);
+        return $record;
+    }
+
+    function getArticleCat(Request $request){
+        $record = DB::select("select c.nom as type,c.id as idc , c.description,a.* from categories c, articles a where  a.id=c.articleCat_id  ");
+        return $record;
+    }
 
     public function storeByAtt(Request $request)
     {
