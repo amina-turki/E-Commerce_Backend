@@ -34,9 +34,10 @@ class ArticleController extends Controller
 */
 
         $client = new article([
+            'referance' =>$request->input('referance'),
             'nom' => $request->input('nom'),
             'prixA' => $request->input('prixA'),
-            'prixV' => $request->input('prixV'),
+            'prixV' => 500,
             'etat' => 'E'
         ]);
         $client->save();
@@ -45,10 +46,20 @@ class ArticleController extends Controller
     }
 
 
+    function getArticleCatUnProd(Request $request,$id){
+        $record = DB::select("select c.nom as type , c.description, c.id from categories c, articles a where  a.id=c.articleCat_id and c.articleCat_id=? ",[$id]);
+        return $record;
+    }
+
+    function getArticleCat(Request $request){
+        $record = DB::select("select c.nom as type,c.id as idc , c.description,a.* from categories c, articles a where  a.id=c.articleCat_id  ");
+        return $record;
+    }
 
     public function storeByAtt(Request $request)
     {
         $client = new article([
+            'referance' =>$request->input('referance'),
             'nom' => $request->input('nom'),
             'prixA' => $request->input('prixA'),
             'prixV' => $request->input('prixV'),

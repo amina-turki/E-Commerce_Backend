@@ -67,8 +67,8 @@ Route::middleware('api')->group(function () {
     //// url:http://localhost:81//BackendEcommerce/E-Commerce_Backend/public/api/articles/
     Route::post('/Creerarticle', [ArticleController::class, 'storeByAtt']); // url:http:/localhost:81//BackendEcommerce/E-Commerce_Backend/public/api/Creerarticle
     Route::get('/recherche/{nom}', [ArticleController::class, 'recherche']); // url:http:/localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/recherche/dd
-
-  
+    Route::get('/getArticleCat', [ArticleController::class, 'getArticleCat']); //http:/localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/getArticleCat
+    Route::get('/getArticleCatUnProd/{id}', [ArticleController::class, 'getArticleCatUnProd']); //http:/localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/getArticleCatUnProd/1
 
 });
 
