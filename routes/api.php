@@ -7,6 +7,7 @@ use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\EmplyeController;
 use App\Http\Middleware;
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +70,16 @@ Route::middleware('api')->group(function () {
 
   
 
+});
+
+Route::middleware('api')->group(function () {
+    Route::resource('employes', EmplyeController::class)->middleware('CORS');
+    // url: http://localhost:81//BackendEcommerce/E-Commerce_Backend/public/api/employes/
+    
+    Route::post('/Creeremploye', [EmplyeController::class, 'storeByAtt']); 
+    // url:http:/localhost:81//BackendEcommerce/E-Commerce_Backend/public/api/Creeremploye
+    
+    Route::get('/recherche/{nom}', [EmplyeController::class, 'recherche']); 
+    // url:http:/localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/recherche/dd
 });
 Route::get('/users/get-data','UserController@getData')->middleware('Cors');
