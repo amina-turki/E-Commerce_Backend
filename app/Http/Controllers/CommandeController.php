@@ -72,4 +72,11 @@ class CommandeController extends Controller
         $comma->delete();
         return response()->json('commande supprimé !');
     }
+
+
+    function getArticleCat(Request $request){
+        $record = DB::select("select cl.nom , cl.prenom,cl.tel,cl.mail,cl.adresse,a.nom,l.montant,c.date  from ligne_commandes l, commandes c , clients cl , articles a  where  l.commande_id=c.id and l.article_id=a.id  and c.client_id =cl.id ");
+        return $record;
+    }
+
 }
